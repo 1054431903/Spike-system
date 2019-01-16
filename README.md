@@ -1,4 +1,4 @@
-#Spike-system
+# Spike-system
 #### introduction
 
 follow the course of imooc
