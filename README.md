@@ -8,6 +8,7 @@ and this project is based on SpringBoot
 ##### v 0.0.1
 init environment and use tools to create domain,dao and mapper
 
+add tag
 ###### how to use the tool:
 1. 在pom文件中添加plugin
 ```xml
