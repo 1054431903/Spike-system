@@ -1,42 +1,42 @@
 package com.jq.demo1.error.exception;
 
-import com.jq.demo1.error.CommentError;
+import com.jq.demo1.error.CommonError;
 
 /**
  * @Author: jq
  * @Date: 2019/1/17 15:51
  */
 //包装器业务异常类实现
-public class BaseException extends Exception implements CommentError {
+public class BaseException extends Exception implements CommonError {
 
-    private CommentError commentError;
+    private CommonError commonError;
 
     //直接接收CommentError 的传参用于构造业务异常
-    public BaseException(CommentError commentError) {
+    public BaseException(CommonError commonError) {
         super();
-        this.commentError = commentError;
+        this.commonError = commonError;
     }
 
     //接收自定义errMsg的方式构造业务异常
-    public BaseException(CommentError commentError, String msg) {
+    public BaseException(CommonError commonError, String msg) {
         super();
-        this.commentError = commentError;
-        this.commentError.setErrMsg(msg);
+        this.commonError = commonError;
+        this.commonError.setErrMsg(msg);
     }
 
     @Override
     public int getErrCode() {
-        return this.commentError.getErrCode();
+        return this.commonError.getErrCode();
     }
 
     @Override
     public String getErrMsg() {
-        return this.commentError.getErrMsg();
+        return this.commonError.getErrMsg();
     }
 
     @Override
-    public CommentError setErrMsg(String msg) {
-        this.commentError.setErrMsg(msg);
+    public CommonError setErrMsg(String msg) {
+        this.commonError.setErrMsg(msg);
         return this;
     }
 

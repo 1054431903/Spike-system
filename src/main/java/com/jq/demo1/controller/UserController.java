@@ -2,7 +2,6 @@ package com.jq.demo1.controller;
 
 import com.jq.demo1.controller.response.CommonReturnType;
 import com.jq.demo1.error.BaseError;
-import com.jq.demo1.error.CommentError;
 import com.jq.demo1.error.exception.BaseException;
 import com.jq.demo1.service.UserService;
 import com.jq.demo1.service.model.UserModel;
@@ -20,10 +19,20 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping("otp")
+    @ResponseBody
+    public CommonReturnType getOtp(@RequestParam("telphone") String telphone) {
+        //按照一定的规则生成otp验证码
+        //将otp验证码同对应用户的手机号关联
+        //将otp验证码通过短信通道发送给用户
+        return CommonReturnType.create(null);
+    }
+
 
     @RequestMapping("show")
     @ResponseBody
@@ -36,19 +45,4 @@ public class UserController {
         return CommonReturnType.create(user);
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public Object handlerException(HttpServletRequest request,Exception e) {
-        Map<String, Object> data = new HashMap<>();
-        if(e instanceof BaseException) {
-            BaseException exception = (BaseException) e;
-            data.put("errCode", exception.getErrCode());
-            data.put("errMsg", exception.getErrMsg());
-        }else {
-            data.put("errCode", BaseError.UNKNOWN_ERROR.getErrCode());
-            data.put("errMsg", BaseError.UNKNOWN_ERROR.getErrMsg());
-        }
-        return CommonReturnType.create(data, "fail");
-    }
 }

@@ -4,7 +4,7 @@ package com.jq.demo1.error;
  * @Author: jq
  * @Date: 2019/1/17 15:32
  */
-public enum BaseError implements CommentError {
+public enum BaseError implements CommonError {
     //通用错误类型10001
     PARAMETER_VALIDATION_ERROR(10001,"参数不合法"),
     //未知错误类型10002
@@ -29,7 +29,7 @@ public enum BaseError implements CommentError {
     }
 
     @Override
-    public CommentError setErrMsg(String msg) {
+    public CommonError setErrMsg(String msg) {
         this.errMsg = msg;
         return this;
     }
