@@ -5,7 +5,7 @@ follow the course of imooc
 
 and this project is based on SpringBoot
 
-##### v 0.0.1
+##### v0.0.1
 init environment and use tools to create domain,dao and mapper
 
 add tag
@@ -50,3 +50,6 @@ add tag
 </plugin>
 ```
 然后配置mybatis-generator.xml，具体配置见文件
+
+##### v0.0.2
+mvc结构创建，简单controller实现
